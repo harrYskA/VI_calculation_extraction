@@ -470,24 +470,6 @@ def Model4(Band_1="E:\\a_PROSPER\\0807.tif\\Band_1",
     arcpy.ia.ZonalStatisticsAsTable(in_zone_data=ROI_shp, zone_field="newcode_1", in_value_raster=ExGR_plant_tif, out_table=Zonal_ExGR, ignore_nodata="DATA", statistics_type="ALL", process_as_multidimensional="CURRENT_SLICE", percentile_values=[90, 75, 25, 5], percentile_interpolation_type="AUTO_DETECT", circular_calculation="ARITHMETIC", circular_wrap_value=360)
 
 
-    # Process: Raster Calculator (Raster Calculator) (ia)
-    SAVI_tif = "E:\\Pea_Extracted\\Prosper\\FFAR_Final\\TP_0807\\SAVI.tif"
-    Raster_Calculator = SAVI_tif
-    SAVI_tif = ( 1.5 * ( Green_Band_tif - Red_Band_tif ) ) / ( Green_Band_tif + Red_Band_tif + 0.5 )
-    SAVI_tif.save(Raster_Calculator)
-
-
-    # Process: Raster Calculator (2) (Raster Calculator) (ia)
-    SAVI_plant_tif = "E:\\Pea_Extracted\\Prosper\\FFAR_Final\\TP_0807\\SAVI_plant.tif"
-    Raster_Calculator_2_ = SAVI_plant_tif
-    SAVI_plant_tif =  SAVI_tif * ExG_threshold_tif
-    SAVI_plant_tif.save(Raster_Calculator_2_)
-
-
-    # Process: Zonal Statistics as Table (22) (Zonal Statistics as Table) (ia)
-    Zonal_SAVI = "E:\\Pea_Extracted\\Prosper\\FFAR_Final\\TP_0807\\Zonal_SAVI"
-    arcpy.ia.ZonalStatisticsAsTable(in_zone_data=ROI_shp, zone_field="newcode_1", in_value_raster=SAVI_plant_tif, out_table=Zonal_SAVI, ignore_nodata="DATA", statistics_type="ALL", process_as_multidimensional="CURRENT_SLICE", percentile_values=[90, 75, 25, 5], percentile_interpolation_type="AUTO_DETECT", circular_calculation="ARITHMETIC", circular_wrap_value=360)
-
 
 if __name__ == '__main__':
     # Global Environment settings
