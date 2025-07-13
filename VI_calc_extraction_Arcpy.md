@@ -36,6 +36,15 @@ from arcpy.ia import *
 from arcpy.ia import *
 from sys import argv
 
+# Input data needed such as orthomosaic image and plot-level polygons for feature extraction.
+
+# Band_1 is the Red band orthomosaic image
+# Band_2 is the Green band orthomosaic image
+# Band_3 is the Blue band orthomosaic image
+# ROI_shp is the predesigned plot-level dimensions of the field plot
+
+# Example band images with the correct path are shown below.
+
 def Model4(Band_1="E:\\a_PROSPER\\0807.tif\\Band_1", 
            Band_2="E:\\a_PROSPER\\0807.tif\\Band_2", 
            Band_3="E:\\a_PROSPER\\0807.tif\\Band_3", 
@@ -76,7 +85,7 @@ def Model4(Band_1="E:\\a_PROSPER\\0807.tif\\Band_1",
     # Process: Threshold (Raster Calculator) (ia)
     ExG_threshold_tif = "E:\\Pea_Extracted\\Prosper\\FFAR_Final\\TP_0807\\ExG_threshold.tif"
     Threshold = ExG_threshold_tif
-    ExG_threshold_tif =  ExG_tif >= 0.124
+    ExG_threshold_tif =  ExG_tif >= 0.65
     ExG_threshold_tif.save(Threshold)
 
 
