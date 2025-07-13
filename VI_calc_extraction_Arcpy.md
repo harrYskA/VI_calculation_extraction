@@ -85,7 +85,7 @@ def Model4(Band_1="E:\\a_PROSPER\\0807.tif\\Band_1",
     # Process: Threshold (Raster Calculator) (ia)
     ExG_threshold_tif = "E:\\Pea_Extracted\\Prosper\\FFAR_Final\\TP_0807\\ExG_threshold.tif"
     Threshold = ExG_threshold_tif
-    ExG_threshold_tif =  ExG_tif >= 0.65
+    ExG_threshold_tif =  ExG_tif >= 0.124
     ExG_threshold_tif.save(Threshold)
 
 
